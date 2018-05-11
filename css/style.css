@@ -1,0 +1,13 @@
+#in {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#convButton {
+    min-width: 100px;
+}
+
+#out {
+    width: 100%;
+    margin-top: 10px;
+}
