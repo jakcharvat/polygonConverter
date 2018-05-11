@@ -4,10 +4,7 @@ function conv() {
     var input = document.getElementById('in').value;
     var output = "POLYGON((";
 
-    input = input.replace(/\n/g, "").replace(/\r/g, "").replace(/ /g, "").replace(/"/g, "");
-    input = input.replace(/],\[/g, ";").replace(/,/g, "*");
-    input = input.replace('"', "").replace('"', "").replace("[", "").replace("]", "");
-    input = input.replace(/N/g, "").replace(/E/g, "").replace(/S/g, "-").replace(/W/g, "-");
+    input = input.replace(/\n/g, "").replace(/\r/g, "").replace(/ /g, "").replace(/"/g, "").replace(/],\[/g, ";").replace(/,/g, "*").replace('"', "").replace('"', "").replace("[", "").replace("]", "").replace(/N/g, "").replace(/E/g, "").replace(/S/g, "-").replace(/W/g, "-");
 
     var st = input.split(";");
     var a = st.length;
