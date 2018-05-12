@@ -1,6 +1,19 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+}
+
 #in {
-    width: 100%;
+    padding-bottom: 15px;
+    min-width: 500px;
+    width: 98%;
     margin-bottom: 10px;
+    height: 500px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#in:focus {
+    outline: none;
 }
 
 #convButton {
@@ -14,4 +27,88 @@
 
 .hide {
     display: none;
+}
+
+#allIn, #allOut {
+    position: relative;
+    min-width: 560px;;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    min-height: 600px;
+    height: 80%;
+    border-radius: 5px;
+    box-shadow: 0 3px 100px rgba(0,0,0,0.06), 0 3px 100px rgba(0,0,0,0.13);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#allIn:hover, #allOut:hover {
+    box-shadow: 0 3px 100px rgba(0,0,0,0.16), 0 3px 100px rgba(0,0,0,0.23);
+}
+
+#content {
+    position: relative;
+    left: 5%;
+    top: 10px;
+    width: 90%;
+    height: 90%;
+}
+
+
+
+.group { 
+    top: 20px;
+    position:relative; 
+    margin-bottom:10px; 
+  }
+
+label {
+    color:#999; 
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+
+  textarea:focus ~ label, textarea:valid ~ label 		{
+    top:-20px;
+    font-size:14px;
+    color:#5264AE;
+  }
+
+
+.bar {
+    top: -13px;
+    position:relative; 
+    display:block; 
+    width:99.1%; 
+    min-width: 508px;
+}
+
+.bar:before, .bar:after {
+    content:'';
+    height:10px; 
+    width:0;
+    bottom:1px; 
+    position:absolute;
+    background:#5264AE; 
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+}
+.bar:before {
+    left:50%;
+}
+.bar:after {
+    right:50%; 
+}
+
+/* active state */
+textarea:focus ~ .bar:before, textarea:focus ~ .bar:after {
+    width:50%;
 }
