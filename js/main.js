@@ -12,12 +12,9 @@ function conv() {
     console.log(a);
 
     var nr = 0;
+    var firstCoord = "";
 
     for (var i = 1; i <= a; i ++) {
-        if (output != "POLYGON((") {
-            output += ",";
-        }
-        
         var coord = st[nr];
         var stCord = coord.split("*");
         var lat = stCord[0];
@@ -71,11 +68,15 @@ function conv() {
             lon = lonStr.substring(0, endAt);
         }
         
-        output += lon + " " + lat;
+        if (i == 1) {
+            firstCoord = lon + " " + lat
+        }
+
+        output += lon + " " + lat + ",";
         nr += 1;
     }
 
-    output += "))";
+    output += firstCoord + "))";
     document.getElementById('out').innerHTML = output;
 
     document.getElementById("labelTwo").classList.remove('hide');
