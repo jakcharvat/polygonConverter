@@ -57,7 +57,7 @@ body {
 
 
 .group { 
-    top: 20px;
+    top: 25px;
     position:relative; 
     margin-bottom:10px; 
   }
@@ -76,7 +76,7 @@ label {
   }
 
   textarea:focus ~ label, textarea:valid ~ label 		{
-    top:-20px;
+    top:-25px;
     font-size:14px;
     color:#5264AE;
   }
