@@ -79,6 +79,6 @@ function conv() {
     output += firstCoord + "))";
     document.getElementById('out').innerHTML = output;
 
-    document.getElementById("allOut").classList.remove('hide');
-    document.getElementById("allIn").classList.add('hide');
+    document.getElementById("allOut").classList.remove('hideBottom');
+    document.getElementById("allIn").classList.add('hideTop');
 }
