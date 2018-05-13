@@ -82,3 +82,10 @@ function conv() {
     document.getElementById("allOut").classList.remove('hideBottom');
     document.getElementById("allIn").classList.add('hideTop');
 }
+
+function back() {
+    document.getElementById('in').value = "";
+
+    document.getElementById("allOut").classList.add('hideBottom');
+    document.getElementById("allIn").classList.remove('hideTop');
+}

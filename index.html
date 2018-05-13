@@ -17,15 +17,19 @@
                 <span class="bar"></span>
                 <label>Your Coordinates</label>
             </div>
-            <button onclick="conv()" id="convButton">Convert</button>
         </div>
+        <button class="button button--tamaya button--round-l button--text-thick button--border-medium button--text-upper button--size-s button--inverted" onclick="conv()" id="convButton" data-text="Convert">
+            <span>Confirm</span>
+        </button>
     </div>
     <div id="allOut" class="hideBottom">
         <div id="content">
             <p class="label hide" id="labelTwo">Here is your output:</p>
             <p id="out"></p>
-            <button id="backButton" onclick="back()">Back</button>
         </div>
+        <button class="button button--tamaya button--round-l button--text-thick button--border-medium button--text-upper button--size-s button--inverted" id="backButton" onclick="back()" data-text="Back">
+            <span>Sure?</span>
+        </button>
     </div>
 </body>
 </html>
