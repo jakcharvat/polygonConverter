@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto Mono', monospace;
-    background-color: #eee5ff;
+    background-color: #CFD8DC;
 }
 
 #in {
@@ -45,7 +45,7 @@ body {
 }
 
 #allIn, #allOut {
-    background-color: #f2fde4;
+    background-color: #ECEFF1;
     position: fixed;
     min-width: 560px;;
     min-height: 600px;
