@@ -7,7 +7,11 @@
     <title>Polygon Converter</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300" rel="stylesheet">
+    <link rel="shortcut icon" href="icon/ms-icon-310x310.png" type="image/x-icon">
     <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js">
+        new ClipboardJS('#copyButton');
+    </script>
 </head>
 <body>
     <div id="allIn">
@@ -18,16 +22,22 @@
                 <label>Your Coordinates</label>
             </div>
         </div>
-        <button class="button button--tamaya button--round-l button--text-thick button--border-medium button--text-upper button--size-s button--inverted" onclick="conv()" id="convButton" data-text="Convert">
+        <button class="button" onclick="conv()" id="convButton" data-text="Convert">
+            <span>Confirm</span>
+        </button>
+        <button class="button" onclick="last()" id="lastButton" data-text="Last Conversion">
             <span>Confirm</span>
         </button>
     </div>
     <div id="allOut" class="hideBottom">
         <div id="content">
-            <p class="label hide" id="labelTwo">Here is your output:</p>
+            <p class="label" id="labelTwo">Here is your output:</p>
             <p id="out"></p>
         </div>
-        <button class="button button--tamaya button--round-l button--text-thick button--border-medium button--text-upper button--size-s button--inverted" id="backButton" onclick="back()" data-text="Back">
+        <button class="button" id="backButton" onclick="back()" data-text="Back">
+            <span>Sure?</span>
+        </button>
+        <button class="button" id="copyButton" onclick="copy()" data-text="Copy To Clipboard">
             <span>Sure?</span>
         </button>
     </div>

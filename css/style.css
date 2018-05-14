@@ -24,10 +24,26 @@ body {
     border: 2px solid rgba(255, 255, 255, 1)
 }
 
-#convButton, #backButton {
+#convButton, #backButton, #lastButton, #copyButton {
     min-width: 100px;
     position: absolute;
     top: 89%;
+    cursor: pointer;
+}
+
+#lastButton {
+    left: 150px;
+    width: 200px;
+    display: none;
+}
+
+#lastButton.show {
+    display: block;
+}
+
+#copyButton {
+    left: 130px;
+    width: 250px;
 }
 
 #out {

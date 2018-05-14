@@ -1,8 +1,10 @@
 console.log("hello");
 
+var output;
+
 function conv() {
     var input = document.getElementById('in').value;
-    var output = "POLYGON((";
+    output = "POLYGON((";
 
     input = input.replace(/\n/g, "").replace(/\r/g, "").replace(/ /g, "").replace(/"/g, "").replace(/],\[/g, ";").replace(/,/g, "*").replace('"', "").replace('"', "").replace("[", "").replace("]", "").replace(/N/g, "").replace(/E/g, "").replace(/S/g, "-").replace(/W/g, "-");
 
@@ -81,6 +83,8 @@ function conv() {
 
     document.getElementById("allOut").classList.remove('hideBottom');
     document.getElementById("allIn").classList.add('hideTop');
+
+    document.getElementById('lastButton').classList.add('show');
 }
 
 function back() {
@@ -88,4 +92,34 @@ function back() {
 
     document.getElementById("allOut").classList.add('hideBottom');
     document.getElementById("allIn").classList.remove('hideTop');
+}
+
+function last() {
+    document.getElementById('out').innerHTML = output;
+
+    document.getElementById("allOut").classList.remove('hideBottom');
+    document.getElementById("allIn").classList.add('hideTop');
+}
+
+function copy() {
+    // Create a dummy input to copy the string array inside it
+    var dummy = document.createElement("input");
+
+    // Add it to the document
+    document.body.appendChild(dummy);
+
+    // Set its ID
+    dummy.setAttribute("id", "dummy_id");
+
+    // Output the array into it
+    document.getElementById("dummy_id").value = output;
+
+    // Select it
+    dummy.select();
+
+    // Copy its contents
+    document.execCommand("copy");
+
+    // Remove it as its not needed anymore
+    document.body.removeChild(dummy);
 }
