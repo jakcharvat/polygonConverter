@@ -100,7 +100,8 @@ body {
     left: 5%;
     top: 10px;
     width: 90%;
-    height: 90%;
+    height: 87.5%;
+    overflow-y: auto;
 }
 
 
