@@ -3,88 +3,107 @@ console.log("hello");
 var output;
 
 function conv() {
-    var input = document.getElementById('in').value;
-    output = "POLYGON((";
+    try {
+        document.getElementById('copyButton').classList.remove('success');
+        document.getElementById('copyButtonSpan').innerHTML = 'Sure?';
 
-    input = input.replace(/\n/g, "").replace(/\r/g, "").replace(/ /g, "").replace(/"/g, "").replace(/],\[/g, ";").replace(/,/g, "*").replace('"', "").replace('"', "").replace("[", "").replace("]", "").replace(/N/g, "").replace(/E/g, "").replace(/S/g, "-").replace(/W/g, "-");
+        var input = document.getElementById('in').value;
+        output = "POLYGON((";
 
-    var st = input.split(";");
-    var a = st.length;
+        input = input.replace(/\n/g, "").replace(/\r/g, "").replace(/ /g, "").replace(/"/g, "").replace(/],\[/g, ";").replace(/,/g, "*").replace('"', "").replace('"', "").replace("[", "").replace("]", "").replace(/N/g, "").replace(/E/g, "").replace(/S/g, "-").replace(/W/g, "-");
 
-    console.log(a);
+        var st = input.split(";");
+        var a = st.length;
 
-    var nr = 0;
-    var firstCoord = "";
+        console.log(a);
 
-    for (var i = 1; i <= a; i ++) {
-        var coord = st[nr];
-        var stCord = coord.split("*");
-        var lat = stCord[0];
-        var lon = stCord[1];
-        
-        if (lat.includes("d")) {
-            var degrees = lat.split("d");
-            var degree = parseFloat(degrees[0]);
-            var decimal = degrees[1];
+        var nr = 0;
+        var firstCoord = "";
+
+        for (var i = 1; i <= a; i ++) {
+            var coord = st[nr];
+            var stCord = coord.split("*");
+            var lat = stCord[0];
+            var lon = stCord[1];
             
-            var minutes = decimal.split("m");
-            var minute = parseFloat(minutes[0]);
-            var second = parseFloat(minutes[1]);
-            
-            var lonConverted = degree + (minute / 60) + (second / 3600);
-            
-            var latStr = lonConverted + "";
-            
-            var endAt = 12;
-            var latCount = latStr.length;
-            console.log(latCount)
-            
-            if (latCount < 12) {
-                endAt = latCount;
+            if (lat.includes("d")) {
+                var degrees = lat.split("d");
+                var degree = parseFloat(degrees[0]);
+                var decimal = degrees[1];
+                
+                var minutes = decimal.split("m");
+                var minute = parseFloat(minutes[0]);
+                var second = parseFloat(minutes[1]);
+                
+                if (degree >= 0) {
+                    var latConverted = degree + (minute / 60) + (second / 3600);
+                }
+                else if (degree < 0) {
+                    var latConverted = degree - (minute / 60) - (second / 3600);
+                }
+                
+                var latStr = latConverted + "";
+                
+                var endAt = 12;
+                var latCount = latStr.length;
+                console.log(latCount)
+                
+                if (latCount < 12) {
+                    endAt = latCount;
+                }
+                
+                lat = latStr.substring(0, endAt);
             }
             
-            lat = latStr.substring(0, endAt);
-        }
-        
-        if (lon.includes('d')) {
-            var degrees = lon.split("d");
-            var degree = parseFloat(degrees[0]);
-            var decimal = degrees[1];
-            
-            var minutes = decimal.split("m");
-            var minute = parseFloat(minutes[0]);
-            var second = parseFloat(minutes[1]);
-            
-            var lonConverted = degree + (minute / 60) + (second / 3600);
-            
-            var lonStr = lonConverted + "";
-            
-            var endAt = 12;
-            var lonCount = lonStr.length;
-            console.log(lonCount);
-            
-            if (lonCount < 12) {
-                endAt = lonCount;
+            if (lon.includes('d')) {
+                var degrees = lon.split("d");
+                var degree = parseFloat(degrees[0]);
+                var decimal = degrees[1];
+                
+                var minutes = decimal.split("m");
+                var minute = parseFloat(minutes[0]);
+                var second = parseFloat(minutes[1]);
+                
+                if (degree >= 0) {
+                    var lonConverted = degree + (minute / 60) + (second / 3600);
+                }
+                else if (degree < 0) {
+                    var lonConverted = degree - (minute / 60) - (second / 3600);
+                }
+                
+                var lonStr = lonConverted + "";
+                
+                var endAt = 12;
+                var lonCount = lonStr.length;
+                console.log(lonCount);
+                
+                if (lonCount < 12) {
+                    endAt = lonCount;
+                }
+                
+                lon = lonStr.substring(0, endAt);
             }
             
-            lon = lonStr.substring(0, endAt);
-        }
-        
-        if (i == 1) {
-            firstCoord = lon + " " + lat
+            if (i == 1) {
+                firstCoord = lon + " " + lat
+            }
+
+            output += lon + " " + lat + ",";
+            nr += 1;
         }
 
-        output += lon + " " + lat + ",";
-        nr += 1;
+        output += firstCoord + "))";
+        document.getElementById('out').innerHTML = output;
+
+        document.getElementById("allOut").classList.remove('hideBottom');
+        document.getElementById("allIn").classList.add('hideTop');
+
+        document.getElementById('lastButton').classList.add('show');
     }
-
-    output += firstCoord + "))";
-    document.getElementById('out').innerHTML = output;
-
-    document.getElementById("allOut").classList.remove('hideBottom');
-    document.getElementById("allIn").classList.add('hideTop');
-
-    document.getElementById('lastButton').classList.add('show');
+    catch (err) {
+        console.log(err);
+        document.getElementById("in").classList.add("error");
+    }
 }
 
 function back() {
@@ -122,4 +141,11 @@ function copy() {
 
     // Remove it as its not needed anymore
     document.body.removeChild(dummy);
+
+    document.getElementById('copyButton').classList.add('success');
+    document.getElementById('copyButtonSpan').innerHTML = 'Success!';
+}
+
+function validate() {
+    document.getElementById("in").classList.remove("error");
 }

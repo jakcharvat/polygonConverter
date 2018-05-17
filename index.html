@@ -14,7 +14,7 @@
     <div id="allIn">
         <div id="content">
             <div class="group">
-                <textarea id="in" required></textarea>
+                <textarea id="in" required oninput="validate()"></textarea>
                 <span class="bar"></span>
                 <label>Your Coordinates</label>
             </div>
@@ -35,7 +35,7 @@
             <span>Sure?</span>
         </button>
         <button class="button" id="copyButton" onclick="copy()" data-text="Copy To Clipboard">
-            <span>Sure?</span>
+            <span id="copyButtonSpan">Sure?</span>
         </button>
     </div>
 </body>

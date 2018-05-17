@@ -19,6 +19,27 @@ body {
     -webkit-transition:0.2s ease all;
 }
 
+#in.error {
+    border: 2px solid rgba(224, 128, 128, 0.5);
+    color: rgb(224, 128, 128);
+}
+
+#in.error:focus {
+    border: 2px solid rgb(224, 128, 128);
+}
+
+#in.error ~ label {
+    color: rgba(224, 128, 128, 0.5);
+}
+
+#in.error:focus ~label, #in.error:valid ~ label {
+    color: rgb(238, 147, 147);
+}
+
+#in.error ~ .bar:before, #in.error ~ .bar:after {
+    background-color: rgb(224, 128, 128);
+}
+
 #in:focus {
     outline: none;
     border: 2px solid rgba(255, 255, 255, 1)
@@ -245,4 +266,22 @@ textarea:focus ~ .bar:before, textarea:focus ~ .bar:after {
 	opacity: 1;
 	-webkit-transform: scale3d(1, 1, 1);
 	transform: scale3d(1, 1, 1);
+}
+.button.success::before {
+    -webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+}
+.button.success::after {
+    -webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+}
+.button.success > span {
+	opacity: 1;
+	-webkit-transform: scale3d(1, 1, 1);
+	transform: scale3d(1, 1, 1);
+}
+
+#copyButton.success {
+    cursor: not-allowed;
+    color: rgba(255, 255, 255, 0.5);
 }
