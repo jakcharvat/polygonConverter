@@ -26,7 +26,7 @@ function conv() {
             var lat = stCord[0];
             var lon = stCord[1];
             
-            if (lat.includes("d")) {
+            if (lat.includes("m")) {
                 var degrees = lat.split("d");
                 var degree = parseFloat(degrees[0]);
                 var decimal = degrees[1];
@@ -35,11 +35,13 @@ function conv() {
                 var minute = parseFloat(minutes[0]);
                 var second = parseFloat(minutes[1]);
                 
-                if (degree >= 0) {
-                    var latConverted = degree + (minute / 60) + (second / 3600);
-                }
-                else if (degree < 0) {
+                var degreeCheck = degree.toString();
+
+                if (degreeCheck.includes("-")) {
                     var latConverted = degree - (minute / 60) - (second / 3600);
+                }
+                else {
+                    var latConverted = degree + (minute / 60) + (second / 3600);
                 }
                 
                 var latStr = latConverted + "";
@@ -54,8 +56,34 @@ function conv() {
                 
                 lat = latStr.substring(0, endAt);
             }
+            else if (lat.includes("d")) {
+                var degrees = lat.split("d");
+                var degree = parseFloat(degrees[0]);
+                var decimal = parseFloat(degrees[1]);
+
+                var degreeCheck = degree.toString();
+
+                if (degreeCheck.includes("-")) {
+                    var latConverted = degree - (decimal / 60);
+                }
+                else {
+                    var latConverted = degree + (decimal / 60);
+                }
+
+                var latStr = latConverted + "";
+                
+                var endAt = 12;
+                var latCount = latStr.length;
+                console.log(latCount)
+                
+                if (latCount < 12) {
+                    endAt = latCount;
+                }
+                
+                lat = latStr.substring(0, endAt);
+            }
             
-            if (lon.includes('d')) {
+            if (lon.includes("m")) {
                 var degrees = lon.split("d");
                 var degree = parseFloat(degrees[0]);
                 var decimal = degrees[1];
@@ -64,18 +92,46 @@ function conv() {
                 var minute = parseFloat(minutes[0]);
                 var second = parseFloat(minutes[1]);
                 
-                if (degree >= 0) {
-                    var lonConverted = degree + (minute / 60) + (second / 3600);
-                }
-                else if (degree < 0) {
+                var degreeCheck = degree.toString();
+
+                if (degreeCheck.includes("-")) {
                     var lonConverted = degree - (minute / 60) - (second / 3600);
+                }
+                else {
+                    var lonConverted = degree + (minute / 60) + (second / 3600);
                 }
                 
                 var lonStr = lonConverted + "";
                 
                 var endAt = 12;
                 var lonCount = lonStr.length;
-                console.log(lonCount);
+                console.log(lonCount)
+                
+                if (lonCount < 12) {
+                    endAt = lonCount;
+                }
+                
+                lon = lonStr.substring(0, endAt);
+            }
+            else if (lon.includes("d")) {
+                var degrees = lon.split("d");
+                var degree = parseFloat(degrees[0]);
+                var decimal = parseFloat(degrees[1]);
+
+                var degreeCheck = degree.toString();
+
+                if (degreeCheck.includes("-")) {
+                    var lonConverted = degree - (decimal / 60);
+                }
+                else {
+                    var lonConverted = degree + (decimal / 60);
+                }
+
+                var lonStr = lonConverted + "";
+                
+                var endAt = 12;
+                var lonCount = lonStr.length;
+                console.log(lonCount)
                 
                 if (lonCount < 12) {
                     endAt = lonCount;
