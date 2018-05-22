@@ -207,16 +207,21 @@ function validate() {
 }
 
 function exportCSV() {
-    const toExport = output;
-    let csvContent = "data:text/csv;charset=utf-8," + output;
-    
-    var encoded = encodeURI(csvContent)
-    var getCSV = document.createElement("a");
-    getCSV.setAttribute("href", encoded);
-    getCSV.setAttribute("download", "aiport.csv");
-    getCSV.innerHTML = "Click To Download";
-    document.body.appendChild(getCSV);
+    try {
+        const toExport = output;
+        let csvContent = "data:text/csv;charset=utf-8," + output;
+        
+        var encoded = encodeURI(csvContent)
+        var getCSV = document.createElement("a");
+        getCSV.setAttribute("href", encoded);
+        getCSV.setAttribute("download", "airspace.csv");
+        getCSV.innerHTML = "Click To Download";
+        document.body.appendChild(getCSV);
 
-    getCSV.click();
-    getCSV.remove();
+        getCSV.click();
+        getCSV.remove();
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
