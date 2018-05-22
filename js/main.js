@@ -4,8 +4,8 @@ var output;
 
 function conv() {
     try {
-        document.getElementById('copyButton').classList.remove('success');
-        document.getElementById('copyButtonSpan').innerHTML = 'Sure?';
+        // document.getElementById('copyButton').classList.remove('success');
+        // document.getElementById('copyButtonSpan').innerHTML = 'Sure?';
 
         var input = document.getElementById('in').value;
         output = "POLYGON((";
@@ -204,4 +204,19 @@ function copy() {
 
 function validate() {
     document.getElementById("in").classList.remove("error");
+}
+
+function exportCSV() {
+    const toExport = output;
+    let csvContent = "data:text/csv;charset=utf-8," + output;
+    
+    var encoded = encodeURI(csvContent)
+    var getCSV = document.createElement("a");
+    getCSV.setAttribute("href", encoded);
+    getCSV.setAttribute("download", "aiport.csv");
+    getCSV.innerHTML = "Click To Download";
+    document.body.appendChild(getCSV);
+
+    getCSV.click();
+    getCSV.remove();
 }

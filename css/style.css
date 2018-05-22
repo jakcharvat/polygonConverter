@@ -45,7 +45,7 @@ body {
     border: 2px solid rgba(255, 255, 255, 1)
 }
 
-#convButton, #backButton, #lastButton, #copyButton {
+#convButton, #backButton, #lastButton, #exportButton {
     min-width: 100px;
     position: absolute;
     top: 89%;
@@ -62,9 +62,13 @@ body {
     display: block;
 }
 
-#copyButton {
-    left: 130px;
-    width: 250px;
+#exportButton {
+    left: 0;
+    width: 200px;
+}
+
+#backButton {
+    right: 0;
 }
 
 #out {
