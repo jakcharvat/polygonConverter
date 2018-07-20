@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="bundle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon//apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon//apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon//apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon//apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon//apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon//apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon//apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon//apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon//favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon//favicon-16x16.png">
+    <title>Polygon Converter</title>
+</head>
+
+<body>
+    <header class="mdc-top-app-bar mdc-top-app-bar--short mdc-top-app-bar--short-collapsed mdc-top-app-bar--fixed tab">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button class="mdc-icon-button material-icons menu-button" onclick="toggleMenu()">
+                    <i class="material-icons">menu</i>
+                </button>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <a href="https://github.com/jakcharvat" class="material-icons mdc-top-app-bar__action-item github-link" aria-label="Bookmark this page"
+                    alt="Bookmark this page">
+                    <img class="github-icon" src="icons/github--black.png">
+                </a>
+            </section>
+        </div>
+    </header>
+
+    <div class="menu">
+        <button class="mdc-icon-button material-icons back-button" onclick="toggleMenu()">
+            <i class="material-icons">arrow_back</i>
+        </button>
+        <div class="menu-content">
+            <div class="jakcharvat-logo">
+                <img src="icons/jakcharvat-logo--black.svg">
+            </div>
+            <ul class="mdc-list">
+                <a class="mdc-list-item mdc-typography--overline item1 hide" onclick="returnToStart()">
+                    <p class="item">Coord Input</p>
+                    <i class="material-icons mdc-list-item__meta">home</i>
+                </a>
+                <li id="divider" role="separator" class="mdc-list-divider hide"></li>
+                <a class="mdc-list-item mdc-typography--overline item2" href="https://github.com/jakcharvat/" target="_blank" onclick="toggleMenu()">
+                    <p class="item">My Projects on Github</p>
+                    <i class="material-icons mdc-list-item__meta">open_in_new</i>
+                </a>
+                <a class="mdc-list-item mdc-typography--overline item3" href="https://github.com/jakcharvat/centrelineGenerator/" target="_blank"
+                    onclick="toggleMenu()">
+                    <p class="item">This Project on Github</p>
+                    <i class="material-icons mdc-list-item__meta">open_in_new</i>
+                </a>
+                <a class="mdc-list-item mdc-typography--overline item4" href="https://openscope.co" target="_blank" onclick="toggleMenu()">
+                    <p class="item">OpenScope</p>
+                    <i class="material-icons mdc-list-item__meta">open_in_new</i>
+                </a>
+                <a class="mdc-list-item mdc-typography--overline item5" href="https://github.com/openscope/openscope/" target="_blank" onclick="toggleMenu()">
+                    <p class="item">OpenScope on Github</p>
+                    <i class="material-icons mdc-list-item__meta">open_in_new</i>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="menu--not" onclick="toggleMenu()"></div>
+
+    <div class="mdc-card hideBottom" id="allIn">
+        <div class="mdc-text-field--container">
+            <div class="mdc-text-field text-field mdc-text-field--fullwidth mdc-text-field--textarea mdc-text-field--upgraded">
+                <textarea id="in" class="mdc-text-field__input" required oninput="validate()" cols="40"></textarea>
+                <label for="in" class="mdc-floating-label" id="in--label">Textarea Label</label>
+            </div>
+        </div>
+        <button class="mdc-button mdc-button--raised convertButton" onclick="conv()">Convert</button>
+    </div>
+
+    <script src="bundle.js" async></script>
+    <script src="js/window.js"></script>
+    <script src="js/functions.js"></script>
+</body>
+
+</html>

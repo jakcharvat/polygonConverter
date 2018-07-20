@@ -1,0 +1,188 @@
+$mdc-theme-primary: #FFCF44;
+$mdc-theme-on-primary: #42424d;
+$mdc-theme-secondary: #FFCF44;
+$mdc-theme-on-secondary: #33333D;
+$mdc-theme-surface: #42424d;
+$mdc-theme-on-surface: #FFFFFF;
+$mdc-theme-background: #33333D;
+$mdc-theme-on-background: #FFFFFF;
+
+@import '@material/button/mdc-button';
+@import '@material/icon-button/mdc-icon-button';
+@import '@material/top-app-bar/mdc-top-app-bar';
+@import '@material/card/mdc-card';
+@import '@material/typography/mdc-typography';
+@import '@material/list/mdc-list';
+@import '@material/textfield/mdc-text-field';
+
+html {
+    --dist-from-side--25: 25%;
+    --height-from-top--allIn: 36px;
+    height: 722px;
+}
+
+body {
+    // overflow: hidden;
+    background-color: $mdc-theme-background;
+    color: $mdc-theme-on-background;
+}
+
+.tab { /*  tab ==> Top App Bar  */
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.menu-button {
+    @include mdc-icon-button-ink-color(on-primary);
+}
+
+.github-icon {
+    width: 100%;
+}
+
+.menu--not {
+    z-index: 3;
+    position: fixed;
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    transition: background-color .5s ease;
+}
+
+.menu.open~.menu--not {
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+}
+
+.menu {
+    overflow: auto;
+    z-index: 4;
+    background-color: $mdc-theme-secondary;
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: -500px;
+    transition: all .5s ease;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.menu.open {
+    left: 0;
+    @include mdc-elevation(24);
+}
+
+.mdc-list {
+    margin: 20px 5px auto 5px;
+}
+
+.mdc-list-item {
+    border-radius: 10px;
+    justify-content: center;
+    cursor: pointer;
+    color: $mdc-theme-on-secondary;
+}
+
+.mdc-list-item.hide {
+    display: none;
+}
+
+.item {
+    color: $mdc-theme-on-secondary;
+}
+
+.mdc-list-divider {
+    @include mdc-theme-prop(border-bottom-color, on-primary);
+    width: 50%;
+    margin: 0 auto;
+    border-bottom-width: 2px;
+    position: relative;
+    top: -5px;
+}
+
+#divider.hide {
+    display: none;
+}
+
+.back-button {
+    position: absolute;
+    @include mdc-icon-button-ink-color(on-secondary);
+}
+
+.jakcharvat-logo {
+    position: relative;
+    top: 20px;
+    left: 10%;
+    width: 80%;
+}
+
+.material-icons {
+    color: $mdc-theme-on-secondary;
+}
+
+
+/*---------  #allIn  --------*/
+
+#allIn {
+    border-radius: 10px;
+    position: absolute;
+    left: var(--dist-from-side--25);
+    top: var(--height-from-top--allIn);
+    width: 50%;
+    min-width: 768px;
+    height: auto;
+    min-height: 650px;
+    bottom: 30px;
+    z-index: 1;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    transition: left 0.2s ease;
+    transition: top 1s ease;
+}
+
+#allIn.hideBottom {
+    top: 100%;
+    visibility: hidden;
+}
+
+/*---------------------------*/
+
+/*---------  Cards  ---------*/
+
+.mdc-card {
+    @include mdc-elevation(16)
+} 
+
+/*---------------------------*/
+
+/*---------  text area  ---------*/
+
+.mdc-text-field, .mdc-text-field__input {
+    height: 100%;
+    @include mdc-text-field-textarea-corner-radius(10px);
+}
+
+.mdc-text-field--container {
+    height: 90%;
+    @include mdc-text-field-textarea-corner-radius(10px);
+    width: 728px;
+    margin-bottom: 10px;
+}
+
+/*-----------------------------*/
+
+/*---------  Button  ----------*/
+
+.mdc-button {
+    width: 150px;
+    border-radius: 10px;
+    position: relative;
+    left: 582px;
+    right: 0px;
+}
+
+/*-----------------------------*/
