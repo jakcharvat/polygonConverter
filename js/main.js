@@ -26,14 +26,14 @@ function conv() {
             
             if (lat.includes("m")) {
                 var degrees = lat.split("d");
-                var degree = parseFloat(degrees[0]);
+                var degreeCheck = degrees[0];
                 var decimal = degrees[1];
                 
                 var minutes = decimal.split("m");
                 var minute = parseFloat(minutes[0]);
                 var second = parseFloat(minutes[1]);
                 
-                var degreeCheck = degree.toString();
+                var degree = parseFloat(degreeCheck);
 
                 if (degreeCheck.includes("-")) {
                     var latConverted = degree - (minute / 60) - (second / 3600);
@@ -83,14 +83,14 @@ function conv() {
             
             if (lon.includes("m")) {
                 var degrees = lon.split("d");
-                var degree = parseFloat(degrees[0]);
+                var degreeCheck = degrees[0];
                 var decimal = degrees[1];
                 
                 var minutes = decimal.split("m");
                 var minute = parseFloat(minutes[0]);
                 var second = parseFloat(minutes[1]);
                 
-                var degreeCheck = degree.toString();
+                var degree = parseFloat(degreeCheck);
 
                 if (degreeCheck.includes("-")) {
                     var lonConverted = degree - (minute / 60) - (second / 3600);
@@ -116,7 +116,7 @@ function conv() {
                 var degree = parseFloat(degrees[0]);
                 var decimal = parseFloat(degrees[1]);
 
-                var degreeCheck = degree.toString();
+                var degreeCheck = degree + "";
 
                 if (degreeCheck.includes("-")) {
                     var lonConverted = degree - (decimal / 60);
